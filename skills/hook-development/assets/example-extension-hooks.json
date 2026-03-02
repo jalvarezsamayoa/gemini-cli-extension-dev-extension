@@ -1,0 +1,28 @@
+{
+  "BeforeAgent": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "name": "context-injector",
+          "type": "command",
+          "command": "node ${extensionPath}/hooks/inject.js",
+          "description": "Injects relevant project context before each agent turn."
+        }
+      ]
+    }
+  ],
+  "BeforeTool": [
+    {
+      "matcher": "write_file|replace",
+      "hooks": [
+        {
+          "name": "security-scanner",
+          "type": "command",
+          "command": "bash ${extensionPath}/hooks/scan.sh",
+          "description": "Checks for secrets before modifying files."
+        }
+      ]
+    }
+  ]
+}

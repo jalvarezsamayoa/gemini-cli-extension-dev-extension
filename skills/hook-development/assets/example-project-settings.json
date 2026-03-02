@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "BeforeTool": [
+      {
+        "matcher": "run_shell_command",
+        "hooks": [
+          {
+            "name": "command-guard",
+            "type": "command",
+            "command": "$GEMINI_PROJECT_DIR/.gemini/hooks/guard.sh",
+            "description": "Blocks destructive shell commands in this workspace."
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "name": "response-validator",
+            "type": "command",
+            "command": "node $GEMINI_PROJECT_DIR/.gemini/hooks/validate.js",
+            "description": "Ensures the agent's final response follows team formatting rules."
+          }
+        ]
+      }
+    ]
+  }
+}
