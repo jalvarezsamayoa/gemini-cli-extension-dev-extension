@@ -28,7 +28,7 @@ This file defines the extension's behavior and is located in the root directory.
 
 - `commands/`: TOML files for custom slash commands.
   - Structure: `commands/group/name.toml` -> `/group:name`.
-- `skills/`: `SKILL.md` files for on-demand expert workflows.
+- `skills/`: `SKILL.md` files for on-demand expert workflows. See the `skill-development` skill for specialized expertise on creating new skills.
 - `hooks/`: `hooks.json` for intercepting CLI lifecycle events.
 - `agents/`: (Preview) Markdown files for delegatable sub-agents.
 - `policies/`: TOML files for safety and tool-call governance.
