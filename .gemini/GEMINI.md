@@ -27,6 +27,19 @@ You will consult both sources before planning any changes or answering any quest
 - Always write clear and descriptive commit messages that explain the changes you made and why you made them. This helps other developers understand your changes and the reasoning behind them.
 - **NEVER** make any changes to the codebase without first consulting the user and getting their approval. Always use the `ask_user` tool to get approval before making any changes.
 
+## Development Workflow
+
+Follow these steps for any modification to this extension:
+1. **Iterative Development**: Use `gemini extensions link .` to test changes locally without reinstalling.
+2. **Validation**: After any change to `gemini-extension.json`, `hooks/hooks.json`, or skill files, run `gemini extensions validate .` to ensure structural integrity.
+3. **Testing**: Manually verify new hooks using the `/hooks panel` or by piping sample JSON to the scripts as described in the `hook-development` skill.
+
+## Technical Standards
+
+- **Security**: Never log, print, or commit sensitive credentials. Use the `sensitive: true` flag in `gemini-extension.json` for any settings that require API keys.
+- **Versioning**: Adhere strictly to Semantic Versioning (SemVer) when updating the `version` field in `gemini-extension.json`.
+- **Portability**: Always use `${extensionPath}` for hook commands in extensions and `$GEMINI_PROJECT_DIR` for project-level hooks to ensure paths remain valid across different environments.
+
 ## Project Structure
 
 - This extension uses the `CONTEXT.md` file instead of the `GEMINI.md` file to avoid conflicting with the `.gemini/GEMINI.md` file used for development instructions.
