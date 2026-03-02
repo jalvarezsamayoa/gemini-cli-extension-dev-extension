@@ -1,8 +1,8 @@
 {
   "name": "extension-dev",
   "version": "0.0.1",
-  "description": "My Gemini CLI extension development project.",
-  "contextFileName": "GEMINI.md",
+  "description": "A Gemini extension for developing and testing Gemini extensions.",
+  "contextFileName": "CONTEXT.md",
   "mcpServers": {},
   "settings": [],
   "excludeTools": [],

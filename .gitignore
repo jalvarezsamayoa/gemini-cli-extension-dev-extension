@@ -37,3 +37,6 @@ out/
 *.swp
 *.swo
 *~
+
+# temporary files
+tmp/

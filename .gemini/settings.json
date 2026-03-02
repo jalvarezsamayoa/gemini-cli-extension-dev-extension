@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "AfterTool": [
+      {
+        "matcher": "write_file|replace",
+        "hooks": [
+          {
+            "name": "lint-markdown",
+            "type": "command",
+            "command": "bash .gemini/hooks/lint-md.sh"
+          },
+          {
+            "name": "lint-toml",
+            "type": "command",
+            "command": "bash .gemini/hooks/lint-toml.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
