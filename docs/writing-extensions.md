@@ -133,8 +133,8 @@ and scripts for your extension.
 Some extensions need configuration, such as API keys or user preferences. Let's
 add a setting for an API key.
 
-1.  Open `gemini-extension.json`.
-2.  Add a `settings` array to the configuration:
+1. Open `gemini-extension.json`.
+2. Add a `settings` array to the configuration:
 
     ```json
     {
@@ -163,14 +163,14 @@ When a user installs this extension, Gemini CLI will prompt them to enter the
 
 Link your extension to your Gemini CLI installation for local development.
 
-1.  **Install dependencies:**
+1. **Install dependencies:**
 
     ```bash
     cd my-first-extension
     npm install
     ```
 
-2.  **Link the extension:**
+2. **Link the extension:**
 
     The `link` command creates a symbolic link from the Gemini CLI extensions
     directory to your development directory. Changes you make are reflected
@@ -187,7 +187,7 @@ asking: "fetch posts".
 
 Custom commands create shortcuts for complex prompts.
 
-1.  Create a `commands` directory and a subdirectory for your command group:
+1. Create a `commands` directory and a subdirectory for your command group:
 
     **macOS/Linux**
 
@@ -201,7 +201,7 @@ Custom commands create shortcuts for complex prompts.
     New-Item -ItemType Directory -Force -Path "commands\fs"
     ```
 
-2.  Create a file named `commands/fs/grep-code.toml`:
+2. Create a file named `commands/fs/grep-code.toml`:
 
     ```toml
     prompt = """
@@ -224,7 +224,7 @@ Provide persistent context to the model by adding a `GEMINI.md` file to your
 extension. This is useful for setting behavior or providing essential tool
 information.
 
-1.  Create a file named `GEMINI.md` in the root of your extension directory:
+1. Create a file named `GEMINI.md` in the root of your extension directory:
 
     ```markdown
     # My First Extension Instructions
@@ -233,7 +233,7 @@ information.
     posts, use the `fetch_posts` tool. Be concise in your responses.
     ```
 
-2.  Update your `gemini-extension.json` to load this file:
+2. Update your `gemini-extension.json` to load this file:
 
     ```json
     {
@@ -258,7 +258,7 @@ every session where the extension is active.
 [Agent Skills](/docs/cli/skills) bundle specialized expertise and workflows.
 Skills are activated only when needed, which saves context tokens.
 
-1.  Create a `skills` directory and a subdirectory for your skill:
+1. Create a `skills` directory and a subdirectory for your skill:
 
     **macOS/Linux**
 
@@ -272,7 +272,7 @@ Skills are activated only when needed, which saves context tokens.
     New-Item -ItemType Directory -Force -Path "skills\security-audit"
     ```
 
-2.  Create a `skills/security-audit/SKILL.md` file:
+2. Create a `skills/security-audit/SKILL.md` file:
 
     ```markdown
     ---

@@ -1,6 +1,6 @@
 {
   "name": "extension-dev",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "My Gemini CLI extension development project.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {},

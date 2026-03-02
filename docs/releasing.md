@@ -17,12 +17,12 @@ don't need to submit an issue or email us to list your extension.
 
 To have your extension automatically discovered and listed:
 
-1.  **Use a public repository:** Ensure your extension is hosted in a public
+1. **Use a public repository:** Ensure your extension is hosted in a public
     GitHub repository.
-2.  **Add the GitHub topic:** Add the `gemini-cli-extension` topic to your
+2. **Add the GitHub topic:** Add the `gemini-cli-extension` topic to your
     repository's **About** section. Our crawler uses this topic to find new
     extensions.
-3.  **Place the manifest at the root:** Ensure your `gemini-extension.json` file
+3. **Place the manifest at the root:** Ensure your `gemini-extension.json` file
     is in the absolute root of the repository or the release archive.
 
 Our system crawls tagged repositories daily. Once you tag your repository, your
@@ -82,10 +82,10 @@ platform-independent, provide a single generic asset.
 To let Gemini CLI find the correct asset for a user's platform, use the
 following naming convention:
 
-1.  **Platform and architecture-specific:**
+1. **Platform and architecture-specific:**
     `{platform}.{arch}.{name}.{extension}`
-2.  **Platform-specific:** `{platform}.{name}.{extension}`
-3.  **Generic:** A single asset will be used as a fallback if no specific match
+2. **Platform-specific:** `{platform}.{name}.{extension}`
+3. **Generic:** A single asset will be used as a fallback if no specific match
     is found.
 
 Use these values for the placeholders:

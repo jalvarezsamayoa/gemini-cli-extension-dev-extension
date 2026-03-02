@@ -1,0 +1,7 @@
+# Taplo configuration file
+# https://taplo.tamasfe.dev/configuration/
+
+[formatting]
+indent_string = "  "
+align_entries = true
+reorder_keys = true

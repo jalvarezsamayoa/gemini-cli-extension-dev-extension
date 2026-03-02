@@ -1,12 +1,20 @@
 {
   "name": "extension-dev",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "My Gemini CLI extension development project.",
   "type": "module",
   "scripts": {
-    "test": "echo "Error: no test specified" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:md": "markdownlint-cli2",
+    "lint:md:fix": "markdownlint-cli2 --fix",
+    "lint:toml": "taplo lint",
+    "fmt:toml": "taplo format"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.0"
+  },
+  "devDependencies": {
+    "@taplo/cli": "^0.7.0",
+    "markdownlint-cli2": "^0.21.0"
   }
 }
