@@ -41,6 +41,7 @@ This file defines the extension's behavior and is located in the root directory.
 ## Standard File Examples
 
 ### Manifest (`gemini-extension.json`)
+
 ```json
 {
   "name": "example-extension",
@@ -66,6 +67,7 @@ This file defines the extension's behavior and is located in the root directory.
 ```
 
 ### Custom Command (`commands/utils/echo.toml`)
+
 ```toml
 prompt = """
 Please repeat the following text exactly as provided, but in a sarcastic tone.
@@ -76,6 +78,7 @@ Text:
 ```
 
 ### Hooks (`hooks/hooks.json`)
+
 ```json
 {
   "hooks": {
@@ -96,6 +99,7 @@ Text:
 ```
 
 ### Security Policy (`policies/security.toml`)
+
 ```toml
 [[rule]]
 toolName = "run_shell_command"
@@ -112,6 +116,7 @@ priority = 800
 ```
 
 ### Sub-agent (`agents/researcher.md`)
+
 ```markdown
 ---
 name: researcher
