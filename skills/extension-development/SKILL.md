@@ -12,7 +12,9 @@ You are an expert developer assistant specialized in the Gemini CLI extension ec
 A Gemini CLI extension is a directory containing a manifest file and optional subdirectories for specialized features.
 
 ### Core Manifest: `gemini-extension.json`
+
 This file defines the extension's behavior and is located in the root directory.
+
 - `name`: Unique lowercase name with dashes.
 - `version`: Semantic Versioning (SemVer).
 - `description`: A brief summary of the extension's purpose.
@@ -23,6 +25,7 @@ This file defines the extension's behavior and is located in the root directory.
 - `themes`: Custom UI color schemes.
 
 ### Standard Subdirectories
+
 - `commands/`: TOML files for custom slash commands.
   - Structure: `commands/group/name.toml` -> `/group:name`.
 - `skills/`: `SKILL.md` files for on-demand expert workflows.
@@ -32,26 +35,125 @@ This file defines the extension's behavior and is located in the root directory.
 - `src/` / `dist/`: Recommended for source code and build artifacts (e.g., TypeScript).
 
 ### Context and Instructions
+
 - `GEMINI.md` / `CONTEXT.md`: Persistent instructions loaded into the model's context for every session. Keep it concise and goal-focused.
+
+## Standard File Examples
+
+### Manifest (`gemini-extension.json`)
+```json
+{
+  "name": "example-extension",
+  "version": "1.0.0",
+  "description": "A comprehensive example extension",
+  "settings": [
+    {
+      "name": "API Key",
+      "description": "The API key for the service.",
+      "envVar": "MY_SERVICE_API_KEY",
+      "sensitive": true
+    }
+  ],
+  "mcpServers": {
+    "utils-server": {
+      "command": "node",
+      "args": ["${extensionPath}${/}dist${/}index.js"],
+      "cwd": "${extensionPath}"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
+```
+
+### Custom Command (`commands/utils/echo.toml`)
+```toml
+prompt = """
+Please repeat the following text exactly as provided, but in a sarcastic tone.
+
+Text:
+{{args}}
+"""
+```
+
+### Hooks (`hooks/hooks.json`)
+```json
+{
+  "hooks": {
+    "BeforeTool": [
+      {
+        "matcher": "run_shell_command",
+        "hooks": [
+          {
+            "name": "shell-logger",
+            "type": "command",
+            "command": "node ${extensionPath}/hooks/log-command.js"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Security Policy (`policies/security.toml`)
+```toml
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "rm -rf"
+decision = "deny"
+priority = 999
+deny_message = "Recursive deletion is blocked by security policy."
+
+[[rule]]
+toolName = "write_file"
+argsPattern = ".*\\.env"
+decision = "ask_user"
+priority = 800
+```
+
+### Sub-agent (`agents/researcher.md`)
+```markdown
+---
+name: researcher
+description: Specialized in deep research and documentation lookup.
+tools:
+  - web_search
+  - read_file
+model: gemini-3-flash-preview
+temperature: 0.1
+max_turns: 10
+---
+
+# Researcher Agent
+
+You are a meticulous researcher. Your goal is to find accurate information and summarize it for the main agent.
+Always cite your sources and provide context for your findings.
+```
 
 ## Development Workflow
 
 1. **Scaffolding**:
+
    ```bash
    gemini extensions new <path> [template]
    ```
+
    Templates include `mcp-server`, `context`, and `custom-commands`.
 
 2. **Linking for Local Iteration**:
+
    ```bash
    gemini extensions link .
    ```
+
    This creates a symbolic link to the global extensions directory, allowing for immediate testing.
 
 3. **Configuration**:
+
    ```bash
    gemini extensions config <name>
    ```
+
    Used to set values for variables defined in the `settings` manifest.
 
 4. **Debugging**:
