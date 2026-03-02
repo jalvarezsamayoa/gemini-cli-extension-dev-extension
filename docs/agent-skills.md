@@ -130,5 +130,5 @@ guidance is prioritized for the duration of the session.
 
 ## Creating your own skills
 
-To create your own skills, see the [Create Agent Skills](/docs/cli/creating-skills)
+To create your own skills, see the [Create Agent Skills](cli/creating-skills.md)
 guide.
